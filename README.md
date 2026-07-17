@@ -51,7 +51,7 @@ This lab was built to get hands-on practice with:
 
 **Takeaway:** Practiced both host/port discovery with Nmap and generating controlled traffic to analyze rather than relying on random background noise. Saving captures as `.pcapng` mirrors how a SOC analyst preserves evidence for a case file.
 
-![Nmap scan and traffic loop](screenshots/03-nmap-loop.png)
+![Nmap scan and traffic loop](screenshots/03-nmap-loop-and-full-capture.png)
 
 ### 4. Full Capture Review
 
@@ -61,7 +61,7 @@ This lab was built to get hands-on practice with:
 
 **Takeaway:** Being able to look at an unfiltered capture and mentally sort traffic by protocol and purpose is foundational for spotting anomalies later — e.g., unexpected ARP activity, DNS to a suspicious domain, or ICMP used for tunneling.
 
-![Full capture review](screenshots/04-full-capture.png)
+![Full capture review](screenshots/03-nmap-loop-and-full-capture.png)
 
 ## 🧠 Lessons Learned
 
@@ -69,3 +69,21 @@ This lab was built to get hands-on practice with:
 - Wireshark display filters are essential for isolating relevant traffic in a busy capture
 - Nmap on localhost is a safe way to learn scan syntax before scanning other hosts
 - Saving captures (`.pcapng`) is a habit worth building early for repeatable analysis
+
+## 📁 Repository Structure
+
+```
+home-soc-lab/
+├── README.md
+├── captures/           # Saved .pcapng files
+├── screenshots/        # Screenshots of the lab in action
+└── notes/              # Any additional write-ups or findings
+```
+
+## 🚀 Next Steps
+
+- [ ] Add a second VM to simulate attacker/victim traffic (e.g., a scan from one VM against another)
+- [ ] Practice writing more advanced Wireshark filters (e.g., `tcp.flags.syn==1`)
+- [ ] Set up a SIEM (e.g., Security Onion, Wazuh, or ELK stack) to ingest captures
+- [ ] Correlate captures with log data instead of reading raw pcaps by hand
+- [ ] Document IOCs (Indicators of Compromise) from future lab exercises involving simulated malicious traffic
